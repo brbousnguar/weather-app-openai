@@ -4,52 +4,55 @@ const PromptToLocation = (prompt) => {
   const url = "https://api.openai.com/v1/chat/completions";
 
   const data = {
-    model: "gpt-3.5-turbo-0613",
+    model: "gpt-3.5-turbo",
     messages: [{ role: "user", content: prompt }],
-    functions: [
+    tools: [
       {
-        name: "displayData",
-        description: "Get the current weather in a given location.",
-        parameters: {
-          type: "object",
-          properties: {
-            country: {
-              type: "string",
-              description: "Country name.",
+        type: "function",
+        function: {
+          name: "displayData",
+          description: "Get the current weather in a given location.",
+          parameters: {
+            type: "object",
+            properties: {
+              country: {
+                type: "string",
+                description: "Country name.",
+              },
+              countryCode: {
+                type: "string",
+                description: "Country code. Use ISO-3166",
+              },
+              USstate: {
+                type: "string",
+                description: "Full state name.",
+              },
+              state: {
+                type: "string",
+                description: "Two-letter state code.",
+              },
+              city: {
+                type: "string",
+                description: "City name.",
+              },
+              unit: {
+                type: "string",
+                description: "location unit: metric or imperial.",
+              },
             },
-            countryCode: {
-              type: "string",
-              description: "Country code. Use ISO-3166",
-            },
-            USstate: {
-              type: "string",
-              description: "Full state name.",
-            },
-            state: {
-              type: "string",
-              description: "Two-letter state code.",
-            },
-            city: {
-              type: "string",
-              description: "City name.",
-            },
-            unit: {
-              type: "string",
-              description: "location unit: metric or imperial.",
-            },
+            required: [
+              "countryCode",
+              "country",
+              "USstate",
+              "state",
+              "city",
+              "unit",
+            ],
           },
-          required: [
-            "countryCode",
-            "country",
-            "USstate",
-            "state",
-            "city",
-            "unit",
-          ],
         },
       },
     ],
-    function_call: "auto",
+    tool_choice: "auto",
   };
 
   const params = {
@@ -65,7 +68,7 @@ const PromptToLocation = (prompt) => {
     .then((response) => response.json())
     .then((data) => {
       const promptRes = JSON.parse(
-        data.choices[0].message.function_call.arguments
+        data.choices[0].message.tool_calls[0].function.arguments
       );
       console.log(promptRes);
 
@@ -81,8 +84,8 @@ const PromptToLocation = (prompt) => {
         locationString: locationString(),
         units: promptRes.unit,
         country: promptRes.country,
-        USstate: promptRes.USstate
-      }
+        USstate: promptRes.USstate,
+      };
 
       return promptData;
     })
