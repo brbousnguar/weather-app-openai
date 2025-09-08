@@ -1,50 +1,75 @@
-# Build a JavaScript AI App with React and the OpenAI API
-This is the repository for the LinkedIn Learning course Build a JavaScript AI App with React and the OpenAI API. The full course is available from [LinkedIn Learning][lil-course-url].
+# Weather Chat AI App
 
-![Build a JavaScript AI App with React and the OpenAI API][lil-thumbnail-url] 
+An intelligent weather application that combines React, OpenAI's GPT API, and OpenWeatherMap to provide conversational weather insights with AI-generated recommendations.
 
-In this course, learn how to integrate the OpenAI API into a JavaScript-based web app. Join instructor Morten Rand-Hendriksen as he takes a React-based weather app, adds  a heavy dose of AI, and creates an interactive experience that knows what location you want weather information from, explains the weather data in simple language, and even suggests what to wear. Through this project-based course, Morten teaches you about API integration, user-based authentication, storing user tokens in a ServiceWorker, task-based API configuration, and sending and receiving requests to the API.
+## Features
 
-## Instructions
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
+- 🌤️ **Natural Language Queries**: Ask for weather in plain English ("What's the weather like in Paris?")
+- 🤖 **AI-Powered Location Detection**: Automatically extracts location from user prompts using OpenAI function calling
+- 💡 **Smart Weather Descriptions**: GPT-generated summaries with clothing recommendations
+- 📊 **Interactive Weather Cards**: Temperature, wind data with unit conversion (metric/imperial)
+- 📱 **Responsive Design**: Clean, modern interface for desktop and mobile
 
-## Branches
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `main` branch holds the final state of the code when in the course.
+## Tech Stack
 
-When switching from one exercise files branch to the next after making changes to the files, you may get a message like this:
+- **Frontend**: React 18 + Vite
+- **APIs**: OpenAI GPT + OpenWeatherMap
+- **Styling**: CSS with custom properties
 
-    error: Your local changes to the following files would be overwritten by checkout:        [files]
-    Please commit your changes or stash them before you switch branches.
-    Aborting
+## Quick Start
 
-To resolve this issue:
-	
-    Add changes to git using this command: git add .
-	Commit changes using this command: git commit -m "some message"
+### Prerequisites
 
-## Installing
-1. To use these exercise files, you must have the following installed:
-	- Node.js
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. In terminal, run `npm install` to install all dependencies.
-4. In terminal, run `npm run dev` to start the Vite dev server.
-5. In terminal, type `o` to open the site in your browser.
-6. In terminal, type `q` to stop the Vite dev server.
+- Node.js installed on your machine
+- OpenAI API key
+- OpenWeatherMap API key
 
+### Setup
 
+1. Clone this repository
+2. Create `.env.local` file in the root directory:
+   ```
+   VITE_OPENAI=your_openai_api_key_here
+   VITE_OWM=your_openweathermap_api_key_here
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start development server:
+   ```bash
+   npm run dev
+   ```
+5. Press `o` to open in browser, `q` to quit
 
-### Instructor
+## How It Works
 
-Morten Rand-Hendriksen 
-                            
-Developer and Senior Staff Instructor
+1. **User Input**: Type natural language weather queries
+2. **AI Processing**: OpenAI extracts location and weather preferences
+3. **Data Fetching**: App retrieves real-time weather data from OpenWeatherMap
+4. **AI Description**: GPT generates personalized weather summaries and recommendations
+5. **Display**: Clean interface shows weather cards with interactive controls
 
-                            
+## Project Structure
 
-Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/morten-rand-hendriksen).
+```
+src/
+├── components/
+│   ├── WeatherForm.jsx      # Input form for weather queries
+│   ├── WeatherCard.jsx      # Weather data display component
+│   ├── Description.jsx      # AI-generated weather descriptions
+│   └── useApiRequests.jsx   # Custom hook for API calls
+├── App.jsx                  # Main application component
+└── main.jsx                 # React entry point
+```
 
-[lil-course-url]: https://www.linkedin.com/learning/build-a-javascript-ai-app-with-react-and-the-openai-api?dApp=59033956&leis=LAA
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/D560DAQGwwpM5Oem1Pw/learning-public-crop_288_512/0/1694808958256?e=2147483647&v=beta&t=8aOT86V8OE20qAcH8cwG-lc1LhmHB6fCRC0q4hmoVfk
-_See the readme file in the main branch for updated instructions and information._
+## API Integration Examples
 
+This project demonstrates:
+
+- OpenAI function calling for structured data extraction
+- Weather API integration with error handling
+- Custom React hooks for managing API state
+- Environment variable configuration for secure API key storage
+
+Perfect for learning modern React development with AI integration!
