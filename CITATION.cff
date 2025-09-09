@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this software in your work, please cite it using the following metadata."
+title: "Weather Chat AI App"
+abstract: "An intelligent weather application that combines React, OpenAI's GPT API, and OpenWeatherMap to provide conversational weather insights with AI-generated recommendations."
+type: software
+authors:
+  - family-names: "BOUSNGUAR"
+    given-names: "BRAHIM"
+version: 0.0.0
+date-released: 2025-09-09
+doi: 10.5281/zenodo.0000000
+repository-code: "https://github.com/YourUsername/weather-chat-ai-app"
+keywords:
+  - "weather app"
+  - "react"
+  - "openai"
+  - "gpt"
+  - "openweathermap"
+  - "ai-powered"
+  - "javascript"
+  - "vite"
+license: "Custom License - See LICENSE file"
+url: "https://yourusername.github.io/weather-chat-ai-app"
+
+references:
+  - type: software
+    title: "React"
+    version: "18.2.0"
+    url: "https://reactjs.org"
+  - type: software
+    title: "Vite"
+    version: "4.3.9"
+    url: "https://vitejs.dev"
+  - type: api
+    title: "OpenAI API"
+    url: "https://openai.com/api/"
+  - type: api
+    title: "OpenWeatherMap API"
+    url: "https://openweathermap.org/api"
