@@ -16,13 +16,7 @@ Welcome to Weather Chat AI App! 🌤️ We're excited that you want to contribut
 
 ## Code of Conduct
 
-This project adheres to a code of conduct to ensure a welcoming environment for everyone. By participating, you agree to:
-
-- Use welcoming and inclusive language
-- Be respectful of differing viewpoints and experiences
-- Gracefully accept constructive criticism
-- Focus on what is best for the community
-- Show empathy towards other community members
+This project adheres to the [Contributor Covenant Code of Conduct](/.github/CODE_OF_CONDUCT.md). By participating in this project, you agree to abide by its terms. Please read the full Code of Conduct document to understand what behaviors will and will not be tolerated.
 
 ## Getting Started
 
