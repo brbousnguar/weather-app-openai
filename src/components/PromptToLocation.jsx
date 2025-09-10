@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
+import { OPENAI_CONFIG, getOpenAIHeaders } from "../config/openai.js";
 
 const PromptToLocation = (prompt) => {
-  const url = "https://api.openai.com/v1/chat/completions";
-
   const data = {
-    model: "gpt-3.5-turbo",
+    model: OPENAI_CONFIG.model,
     messages: [{ role: "user", content: prompt }],
     tools: [
       {
@@ -56,15 +55,13 @@ const PromptToLocation = (prompt) => {
   };
 
   const params = {
-    headers: {
-      Authorization: `Bearer ${import.meta.env.VITE_OPENAI}`,
-      "Content-Type": "application/json",
-    },
+    headers: getOpenAIHeaders(),
     body: JSON.stringify(data),
     method: "POST",
   };
 
-  return fetch(url, params)
+  // Return the fetch() promise
+  return fetch(OPENAI_CONFIG.apiUrl, params)
     .then((response) => response.json())
     .then((data) => {
       const promptRes = JSON.parse(

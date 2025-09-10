@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
+import { OPENAI_CONFIG, getOpenAIHeaders } from "../config/openai.js";
 
 const WeatherDescript = (prompt, weatherData) => {
-  const url = "https://api.openai.com/v1/chat/completions";
-
   const sysMsg = `In a conversational professional tone, answer the [Question] based on the [Weather Data]. 
 
 - Provide an opinion about what the weather feels like. 
@@ -15,7 +14,7 @@ const WeatherDescript = (prompt, weatherData) => {
   )}`;
 
   const data = {
-    model: "gpt-4",
+    model: OPENAI_CONFIG.model,
     messages: [
       { role: "system", content: sysMsg },
       { role: "user", content: newPrompt },
@@ -23,15 +22,12 @@ const WeatherDescript = (prompt, weatherData) => {
   };
 
   const params = {
-    headers: {
-      Authorization: `Bearer ${import.meta.env.VITE_OPENAI}`,
-      "Content-Type": "application/json",
-    },
+    headers: getOpenAIHeaders(),
     body: JSON.stringify(data),
     method: "POST",
   };
 
-  return fetch(url, params)
+  return fetch(OPENAI_CONFIG.apiUrl, params)
     .then((response) => response.json())
     .then((data) => {
       return data.choices[0].message.content;
