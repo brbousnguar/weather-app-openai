@@ -1,8 +1,39 @@
 {
-  "name": "weatherchat",
-  "private": true,
-  "version": "0.0.0",
+  "name": "weather-chat-ai",
+  "private": false,
+  "version": "1.0.0",
+  "description": "Intelligent weather app combining React, OpenAI GPT-4, and OpenWeatherMap for conversational weather insights with AI-generated recommendations",
   "type": "module",
+  "keywords": [
+    "react",
+    "openai",
+    "gpt-4",
+    "weather",
+    "ai",
+    "chatbot",
+    "vite",
+    "javascript",
+    "weather-app",
+    "artificial-intelligence",
+    "function-calling",
+    "openweathermap",
+    "natural-language",
+    "cost-optimization"
+  ],
+  "author": {
+    "name": "BOUSNGUAR BRAHIM",
+    "email": "b.bousnguar@gmail.com",
+    "url": "https://github.com/brbousnguar"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brbousnguar/weather-chat-ai.git"
+  },
+  "homepage": "https://github.com/brbousnguar/weather-chat-ai#readme",
+  "bugs": {
+    "url": "https://github.com/brbousnguar/weather-chat-ai/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
