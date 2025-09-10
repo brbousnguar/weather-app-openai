@@ -1,5 +1,9 @@
 import PropTypes from "prop-types";
-import { OPENAI_CONFIG, getOpenAIHeaders } from "../config/openai.js";
+import {
+  OPENAI_CONFIG,
+  getOpenAIHeaders,
+  getModelForTask,
+} from "../config/openai.js";
 
 const WeatherDescript = (prompt, weatherData) => {
   const sysMsg = `In a conversational professional tone, answer the [Question] based on the [Weather Data]. 
@@ -14,7 +18,7 @@ const WeatherDescript = (prompt, weatherData) => {
   )}`;
 
   const data = {
-    model: OPENAI_CONFIG.model,
+    model: getModelForTask("description"), // Uses GPT-4 for natural language generation
     messages: [
       { role: "system", content: sysMsg },
       { role: "user", content: newPrompt },

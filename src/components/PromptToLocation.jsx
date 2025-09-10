@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
-import { OPENAI_CONFIG, getOpenAIHeaders } from "../config/openai.js";
+import {
+  OPENAI_CONFIG,
+  getOpenAIHeaders,
+  getModelForTask,
+} from "../config/openai.js";
 
 const PromptToLocation = (prompt) => {
   const data = {
-    model: OPENAI_CONFIG.model,
+    model: getModelForTask("function-calling"), // Uses GPT-4o-mini for function calling
     messages: [{ role: "user", content: prompt }],
     tools: [
       {
