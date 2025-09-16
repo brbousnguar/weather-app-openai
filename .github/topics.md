@@ -3,6 +3,7 @@
 Add these topics to your GitHub repository for better discoverability:
 
 ## Primary Topics
+
 - `react`
 - `openai`
 - `gpt-4`
@@ -10,6 +11,7 @@ Add these topics to your GitHub repository for better discoverability:
 - `artificial-intelligence`
 
 ## Secondary Topics
+
 - `vite`
 - `javascript`
 - `chatbot`
@@ -22,6 +24,7 @@ Add these topics to your GitHub repository for better discoverability:
 - `responsive-design`
 
 ## How to Add Topics
+
 1. Go to your repository on GitHub
 2. Click the gear icon ⚙️ next to "About"
 3. Add the topics from the lists above

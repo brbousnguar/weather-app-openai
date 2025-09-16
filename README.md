@@ -8,9 +8,11 @@
 
 > An intelligent weather application that combines React, OpenAI's GPT API, and OpenWeatherMap to provide conversational weather insights with AI-generated recommendations.
 
-## 🌟 Live Demo
+## 🌟 Preview
 
-[Try the live demo here](https://your-demo-url.com) | [View Screenshots](#screenshots)
+![Weather Chat AI Preview](docs/images/weather-app-screenshot.png)
+
+> **Experience AI-powered weather insights**: Natural language queries with intelligent clothing recommendations
 
 ## ✨ Key Features
 
@@ -31,18 +33,21 @@
 This app uses an optimized approach with different OpenAI models for different tasks to balance cost, performance, and quality:
 
 ### 🎯 **GPT-4 (Premium)** - Weather Descriptions
+
 - **Used for**: Natural language generation, complex reasoning
 - **Components**: `WeatherDescript.jsx`
 - **Why**: Superior quality for conversational weather insights and clothing recommendations
 - **Cost**: Higher, but justified for user-facing content quality
 
-### ⚡ **GPT-4o-mini (Standard)** - Location Extraction  
+### ⚡ **GPT-4o-mini (Standard)** - Location Extraction
+
 - **Used for**: Function calling, structured data extraction
 - **Components**: `PromptToLocation.jsx`
 - **Why**: Excellent at function calling with 20x lower cost than GPT-4
 - **Benefits**: Faster response times, same accuracy for structured tasks
 
 ### 📊 **Cost Optimization**
+
 ```
 Location Extraction: GPT-4o-mini (~$0.0015/1K tokens) - 50-90% savings
 Weather Descriptions: GPT-4 (~$0.03/1K tokens) - Premium quality maintained
@@ -62,6 +67,7 @@ We welcome contributions! Here are some ways you can help:
 See our [Contributing Guide](CONTRIBUTING.md) for detailed information.
 
 ### Development Roadmap
+
 - [ ] Add weather alerts and warnings
 - [ ] Implement location-based weather maps
 - [ ] Add weather history and trends
@@ -142,26 +148,31 @@ src/
 ## AI Integration Architecture
 
 ### Model Configuration (`src/config/openai.js`)
+
 ```javascript
 export const OPENAI_CONFIG = {
   models: {
-    premium: "gpt-4",           // Complex reasoning & descriptions
-    standard: "gpt-4o-mini",    // Function calling & extraction
-    basic: "gpt-3.5-turbo"      // Fallback option
-  }
+    premium: "gpt-4", // Complex reasoning & descriptions
+    standard: "gpt-4o-mini", // Function calling & extraction
+    basic: "gpt-3.5-turbo", // Fallback option
+  },
 };
 
 // Smart model selection based on task type
 export const getModelForTask = (taskType) => {
   switch (taskType) {
-    case 'description': return OPENAI_CONFIG.models.premium;
-    case 'function-calling': return OPENAI_CONFIG.models.standard;
-    default: return OPENAI_CONFIG.models.standard;
+    case "description":
+      return OPENAI_CONFIG.models.premium;
+    case "function-calling":
+      return OPENAI_CONFIG.models.standard;
+    default:
+      return OPENAI_CONFIG.models.standard;
   }
 };
 ```
 
 ### Usage Examples
+
 - **Location Extraction**: `getModelForTask('function-calling')` → GPT-4o-mini
 - **Weather Descriptions**: `getModelForTask('description')` → GPT-4
 
@@ -187,20 +198,24 @@ Perfect for learning modern React development with cost-optimized AI integration
 
 ## 📸 Screenshots
 
-### Main Interface
-![Weather Chat Interface](docs/images/main-interface.png)
+### Weather Chat Interface
 
-### AI Weather Description
-![AI Generated Weather Description](docs/images/ai-description.png)
+![Weather Chat AI App - Main Interface](docs/images/weather-app-screenshot.png)
 
-### Weather Cards
-![Interactive Weather Cards](docs/images/weather-cards.png)
+_The app in action: Showing Paris weather with AI-generated description including temperature (12.4°C), wind speed (5.1 m/s), and intelligent clothing recommendations._
 
-> **Note**: Add actual screenshots to a `docs/images/` folder for better visual appeal
+**Key Features Demonstrated:**
+
+- 🌤️ Natural language input ("Paris")
+- 🤖 AI-powered weather description with contextual advice
+- 📊 Clean weather card display with metric units
+- 💡 Smart recommendations (light jacket, comfortable clothing)
+- 📱 Responsive, modern interface design
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 16+ installed
 - OpenAI API key ([Get one here](https://platform.openai.com/api-keys))
 - OpenWeatherMap API key ([Get one here](https://openweathermap.org/api))
